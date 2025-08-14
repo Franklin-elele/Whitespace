@@ -1,157 +1,98 @@
-/* Container layout */
 .container {
-  padding: 40px;
-  font-family: "Segoe UI", sans-serif;
-  background-color: #d6dfe3;
   max-width: 1200px;
-  margin: 0 auto;
+  margin: auto;
+  padding: 20px;
+  font-family: 'Poppins', sans-serif;
 }
 
-/* Header */
 .header {
   text-align: center;
-  margin-bottom: 30px;
-}
-.header h1 {
-  font-size: 2.5rem;
-  margin-bottom: 10px;
-}
-.header h2 {
-  font-size: 1.5rem;
-  margin-bottom: 10px;
-}
-.header p {
-  color: #555;
-  font-size: 1rem;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-bottom: 20px;
 }
 
-/* Main content (form + preview) */
 .main-content {
   display: flex;
-  justify-content: space-between;
-  gap: 30px;
+  gap: 20px;
+  flex-wrap: wrap;
 }
 
-/* Left box: Form */
 .form-box {
-  background: white;
-  padding: 30px;
-  padding-right: 45px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  flex: 0.3;
+  flex: 1;
+  min-width: 300px;
+  background: #fdfdfd;
+  padding: 20px;
   border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.1);
 }
 
 .form-group {
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
+
 .form-group label {
-  display: block;
   font-weight: bold;
-  margin-bottom: 6px;
+  display: block;
+  margin-bottom: 5px;
 }
+
 .form-group input {
   width: 100%;
   padding: 10px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
 }
 
-.form-group input {
-  transition: all 0.3s ease;
-}
-
-.form-group input:focus {
-  border-color: #4f46e5; /* nice Indigo shade */
-  transform: scale(1.02);
-}
-
-.download-btn:hover {
-  background-color: #4f46e5;
-  color: white;
-  transform: translateY(-2px);
-  transition: all 0.2s ease-in-out;
-}
-
-/* Centered long button */
 .download-btn {
+  padding: 10px;
   width: 100%;
-  padding: 12px;
-  background: black;
-  color: white;
   border: none;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 16px;
-  margin-top: 20px;
-  cursor: pointer;
-}
-@media (max-width: 768px) {
-  .main-content {
-    flex-direction: column;
-  }
-
-  .form-box,
-  .card-preview {
-    width: 100%;
-  }
-}
-
-
-/* Same container and form-box styles as before ... */
-
-/* Right box: Business Card Preview */
-.card-preview {
-  flex: 0.4;
-  font-family: Cambria, Cochin, Georgia, Times, "Times New Roman", serif;
-  color: black;
-  position: relative;
-  background-color:rgb(159, 199, 221) ;
-  padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-  height: 220px; /* ⬅️ Fixed short height */
+  font-size: 1rem;
+}
+
+.card-preview-container {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card-preview {
+  position: relative;
+  width: 350px;
+  height: 200px;
+  border-radius: 15px;
+  overflow: hidden;
+  color: white;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* center vertically */
-  gap: 10px;
-  overflow: hidden;
-  transition: transform 0.3s ease;
-}
-.card-preview:hover {
-  transform: scale(1.02);
-}
-
-/* Round shape inside box */
-.circle-shape {
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-}
-
-.circle-shape2 {
-  position: absolute;
-  bottom: -70px;
-  left: -60px;
-  width: 150px;
-  height: 150px;
-  background: rgba(255, 255, 255, 0.3);
-  border-radius: 40%;
+  justify-content: center;
+  padding: 20px;
 }
 
 .card-content {
-  font-size: 1.2rem;
-  line-height: 1;
-  color: rgba(19, 19, 19, 0.787);
-}
-.profile-image {
-  display: flex;
-  justify-content: flex-end;
+  z-index: 2;
 }
 
+.card-shape {
+  position: absolute;
+  width: 120px;
+  opacity: 0.2;
+}
+
+.card-shape.top {
+  top: 0;
+  left: 0;
+}
+
+.card-shape.bottom {
+  bottom: 0;
+  right: 0;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+    align-items: center;
+  }
+}
